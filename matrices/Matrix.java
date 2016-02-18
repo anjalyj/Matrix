@@ -46,4 +46,22 @@ public class Matrix{
     }
     return null;
   }
+
+  public Matrix multiplyTwoMatrices(Matrix givenMatrix){
+    if(this.column==givenMatrix.row){
+      Matrix result = new Matrix(this.row,givenMatrix.column);
+      int ans=0;
+      for (int i = 0; i < this.row; i++) {
+        for (int j = 0; j < givenMatrix.column; j++) {
+          for (int k = 0; k < this.column; k++) {
+            result.matrix[i][j] +=  this.getElementAt(i,k) * givenMatrix.getElementAt(k,j);
+          }
+        }
+      }
+      return result;
+    }
+    return null;
+  }
+
+
 }
