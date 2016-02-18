@@ -19,8 +19,8 @@ public class Matrix{
 
   public Matrix addTwoMatrices(Matrix matrix1, Matrix matrix2){
     int[][] result = new int[matrix1.row][matrix1.column];
-    for(int i=0;i<2;i++){
-      for(int j=0;j<3;j++){
+    for(int i=0;i<matrix1.row;i++){
+      for(int j=0;j<matrix1.column;j++){
         this.matrix[i][j]=matrix1.matrix[i][j]+matrix2.matrix[i][j];
       }
     }
