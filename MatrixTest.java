@@ -24,13 +24,6 @@ public class MatrixTest{
   }
 
   @Test
-  public void compareTwoMatrices_checks_number_of_rows_and_columns(){
-    Matrix firstMatrix = new Matrix(2,3);
-    Matrix secondMatrix = new Matrix(2,3);
-    assertTrue(firstMatrix.compareTwoMatrices(secondMatrix));
-  }
-
-  @Test
   public void isSameAs_returns_true_if_two_matrices_are_same(){
     Matrix firstMatrix = new Matrix(2,3);
     Matrix secondMatrix = new Matrix(2,3);
@@ -112,6 +105,7 @@ public class MatrixTest{
     assertEquals(17,resultMatrix.getElementAt(0,2));
     assertEquals(21,resultMatrix.getElementAt(1,1));
   }
+
   @Test
   public void multiplyTwoMatrices_multiplies_two_given_matrices(){
     Matrix firstMatrix = new Matrix(3,3);
@@ -151,6 +145,45 @@ public class MatrixTest{
       }
     }
     assertEquals(null,firstMatrix.multiplyTwoMatrices(secondMatrix));
+  }
+
+  @Test
+  public void determinant_returns_the_determinant_of_the_given_3_by_3_matrix(){
+    Matrix firstMatrix = new Matrix(3,3);
+    int num=1;
+    for(int i=0;i<3;i++){
+      for(int j=0;j<3;j++){
+        firstMatrix.addElementToMatrix(i,j,num);
+        num++;
+      }
+    }
+    assertEquals(0,firstMatrix.determinant());
+  }
+
+  @Test
+  public void determinant_returns_the_determinant_of_the_given_2_by_2_matrix(){
+    Matrix firstMatrix = new Matrix(2,2);
+    int num=1;
+    for(int i=0;i<2;i++){
+      for(int j=0;j<2;j++){
+        firstMatrix.addElementToMatrix(i,j,num);
+        num++;
+      }
+    }
+    assertEquals(-2,firstMatrix.determinant());
+  }
+
+  @Test
+  public void determinant_returns_the_determinant_of_the_given_4_by_4_matrix(){
+    Matrix firstMatrix = new Matrix(4,4);
+    int num=1;
+    for(int i=0;i<4;i++){
+      for(int j=0;j<4;j++){
+        firstMatrix.addElementToMatrix(i,j,num);
+        num++;
+      }
+    }
+    assertEquals(0,firstMatrix.determinant());
   }
 
 }
